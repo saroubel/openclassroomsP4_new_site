@@ -38,6 +38,10 @@ body {
 	color: #000
 }
 
+.carousel-item img {
+	height: 100%; 		 /* redimensionner image slid */
+}
+
 .social-link img {
 	width: 20px;
 	height: 20px;
