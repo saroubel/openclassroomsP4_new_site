@@ -107,11 +107,12 @@ body {
 .gallery .nav {
 	justify-content: center;
 }
+/* Rendre le texte plus gras et en blanc + couleur du bouton en noir avec une bordure */
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #000000;
-	outline: 1px solid #000000; 
-	background-color: transparent;
-	border-radius: 20px ;
+    color: white;
+    background-color: black;
+    border-radius: 20px;
+    font-weight: 600;
 }
 .nav-pills .nav-link {
 	color: #000
