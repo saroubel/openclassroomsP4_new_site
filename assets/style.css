@@ -107,6 +107,10 @@ body {
 .gallery .nav {
 	justify-content: center;
 }
+/* image de la modale */
+.lightboxImage {
+	width: 100%;
+}
 /* Rendre le texte plus gras et en blanc + couleur du bouton en noir avec une bordure */
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: white;
