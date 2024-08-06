@@ -119,45 +119,39 @@
         .attr("src", element.attr("src"));
       $(`#${lightboxId}`).modal("toggle");
     },
-    prevImage() {
-      let activeImage = null;
-      $("img.gallery-item").each(function() {
+  //fonction affiche la precedente image
+  prevImage() {
+    let activeImage = null;
+    $("img.gallery-item").each(function() {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
-          activeImage = $(this);
+            activeImage = $(this);
         }
-      });
-      let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
-      let imagesCollection = [];
-      if (activeTag === "all") {
+    });
+    let activeTag = $(".tags-bar span.active-tag").data("images-toggle");
+    let imagesCollection = [];
+    if (activeTag === "all") {
         $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      } else {
+            if ($(this).children("img").length) {
+                imagesCollection.push($(this).children("img")[0]);
+            }});
+    } else {
         $(".item-column").each(function() {
-          if (
-            $(this)
-              .children("img")
-              .data("gallery-tag") === activeTag
-          ) {
-            imagesCollection.push($(this).children("img"));
-          }
-        });
-      }
-      let index = 0,
-        next = null;
-
-      $(imagesCollection).each(function(i) {
+            if ($(this).children("img").data("gallery-tag") === activeTag) {
+                imagesCollection.push($(this).children("img")[0]);
+            }});
+    }
+    let index = -1;
+    $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
-        }
-      });
-      next =
-        imagesCollection[index] ||
-        imagesCollection[imagesCollection.length - 1];
-      $(".lightboxImage").attr("src", $(next).attr("src"));
-    },
+            index = i;
+        } });
+    if (index > 0) {
+        next = imagesCollection[index - 1];
+    } else {
+        next = imagesCollection[imagesCollection.length - 1];
+    }
+    $(".lightboxImage").attr("src", $(next).attr("src"));
+  },
   //fonction affiche la prochaine image
   nextImage() {
     let activeImage = null;
